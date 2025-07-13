@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Tab Player",
+  "version": "1.0",
+  "description": "Automatically plays the next YouTube video in another tab when the current one finishes.",
+  "permissions": [
+    "tabs",
+    "storage"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.youtube.com/watch*",
+        "*://www.youtube.com/shorts/*"
+      ],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_title": "YouTube Tab Player",
+    "default_icon": "icon128.png"
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}
